@@ -33,4 +33,13 @@ public class Newton : MonoBehaviour
             transform.position = position;
         }
 	}
+
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		GameObject apple = collision.gameObject;
+
+		health += apple.GetComponent<Apple>().Health;
+        print(health);
+		Destroy(apple);
+	}
 }
